@@ -1,0 +1,36 @@
+{
+  "name": "bastion",
+  "version": "0.1.0",
+  "description": "Autonomous, verifiable AI trading agent for tokenized stocks on Robinhood Chain.",
+  "type": "module",
+  "bin": { "bastion": "dist/index.js" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "keywords": ["ai-agents","autonomous-trading","robinhood-chain","tokenized-stocks","multi-agent","verifiable-ai","defi","cli"],
+  "engines": { "node": ">=20" },
+  "repository": { "type": "git", "url": "https://github.com/adrydevel/bastion.git" },
+  "homepage": "https://bastionfund.vercel.app",
+  "bugs": { "url": "https://github.com/adrydevel/bastion/issues" },
+  "author": "adrydevel",
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.21.0",
+    "commander": "^12.1.0",
+    "picocolors": "^1.1.0",
+    "zod": "^3.23.8",
+    "openai": "^4.67.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "tsx": "^4.19.0",
+    "vitest": "^2.1.1",
+    "@types/node": "^20.16.0"
+  }
+}
