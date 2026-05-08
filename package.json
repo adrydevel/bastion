@@ -1,6 +1,6 @@
 {
   "name": "bastion",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Autonomous, verifiable AI trading agent for tokenized stocks on Robinhood Chain.",
   "type": "module",
   "bin": { "bastion": "dist/index.js" },
