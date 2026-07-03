@@ -2,6 +2,10 @@
 
 All notable changes are documented here. Format based on Keep a Changelog.
 
+## [0.4.2] - 2026-07-03
+### Fixed
+- Guard against zero-length oracle windows in the regime detector.
+
 ## [0.4.0] - 2026-06-20
 ### Added
 - On-chain proof anchoring on Robinhood Chain.
