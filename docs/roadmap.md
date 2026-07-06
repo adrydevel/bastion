@@ -11,3 +11,5 @@ Near-term, in rough order:
 4. **Live paper-trading** on Robinhood Chain testnet with public proof feed.
 
 Longer-term items are tracked in issues under the `roadmap` label.
+
+Status: the first three roadmap items are in progress; testnet paper-trading is next.
