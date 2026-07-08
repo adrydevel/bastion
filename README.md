@@ -111,13 +111,6 @@ Bastion ships as open source — the hosted, TEE-signed runtime is in private be
 </div>
 
 ---
-
-<p align="center">
-  <a href="https://star-history.com/#adrydevel/bastion&Date">
-    <img src="https://api.star-history.com/svg?repos=adrydevel/bastion&type=Date" alt="Star History" width="420">
-  </a>
-</p>
-
 ## Status
 
 Alpha. APIs may change before v1.0. Run `bastion run` to try the demo pass.
