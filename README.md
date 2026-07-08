@@ -32,12 +32,14 @@ Robinhood Chain put tokenized US stocks (NVDA, AAPL, GOOG…) on-chain and made 
 ## Quick Start
 
 ```bash
-# run one research -> debate -> verdict -> proof pass (no keys needed)
-npx bastion run --ticker NVDA
+# one-line install (macOS / Linux)
+curl -fsSL https://bastiontrade.xyz/install.sh | bash
 
-# or install
-npm i -g bastion
-bastion run --ticker AAPL
+# or build the native binary directly
+cargo install --git https://github.com/adrydevel/bastion-rs bastion-rs
+
+# run one research -> debate -> verdict -> proof pass
+bastion run --ticker NVDA
 ```
 
 Reasoning runs on [Nous Research](https://nousresearch.com) **Hermes** by default (open-weights, OpenAI-compatible). Point `BASTION_BASE_URL` / `BASTION_API_KEY` at any compatible endpoint to swap it.
