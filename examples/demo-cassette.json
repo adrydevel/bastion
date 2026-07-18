@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "version": "0.5.0",
+  "recordedAt": 1784421967687,
+  "config": {
+    "rpcUrl": "https://rpc.robinhood-chain.xyz",
+    "chainId": 64288,
+    "universe": [
+      "NVDA",
+      "AAPL",
+      "GOOG",
+      "MSFT",
+      "AMZN",
+      "META",
+      "TSLA"
+    ],
+    "maxKelly": 0.25,
+    "cvarLimit": 0.08,
+    "maxDrawdown": 0.15,
+    "quorum": 3,
+    "provider": "hermes",
+    "attestOnchain": true
+  },
+  "input": {
+    "ticker": "NVDA",
+    "quotes": [
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100,
+        "ts": 1784420527635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.1963168180777,
+        "ts": 1784420587635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.56806707827235,
+        "ts": 1784420647635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 101.07581774093984,
+        "ts": 1784420707635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 101.66525424998208,
+        "ts": 1784420767635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 102.27244466862582,
+        "ts": 1784420827635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 102.83042109325996,
+        "ts": 1784420887635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 103.27655244749442,
+        "ts": 1784420947635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 103.55990568993977,
+        "ts": 1784421007635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 103.64759193829363,
+        "ts": 1784421067635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 103.52908047557786,
+        "ts": 1784421127635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 103.21769996415468,
+        "ts": 1784421187635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 102.74900748679778,
+        "ts": 1784421247635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 102.1762755791193,
+        "ts": 1784421307635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 101.56385862171622,
+        "ts": 1784421367635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.97950632495132,
+        "ts": 1784421427635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.48672872231091,
+        "ts": 1784421487635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.13812122311565,
+        "ts": 1784421547635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 99.97024036493407,
+        "ts": 1784421607635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.00030762029424,
+        "ts": 1784421667635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.22479904921605,
+        "ts": 1784421727635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 100.61987714822375,
+        "ts": 1784421787635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 101.14360171890883,
+        "ts": 1784421847635
+      },
+      {
+        "ticker": "NVDA",
+        "address": "0x0000000000000000000000000000000000000000",
+        "price": 101.73984797666489,
+        "ts": 1784421907635
+      }
+    ]
+  },
+  "exchanges": [
+    {
+      "agent": "Analyst",
+      "system": "You are the Analyst on an autonomous trading desk that trades tokenized US stocks 24/7 on Robinhood Chain. Your role: reads price structure and trend on the tokenized-stock oracle series. Reply with a side (long/short/flat), a confidence in [0,1] as 'confidence: x', and one sentence of evidence. Be decisive but honest; abstain (flat) when the edge is not there.",
+      "user": "{\"ticker\":\"NVDA\",\"regime\":\"chop\",\"window\":[103.55990568993977,103.64759193829363,103.52908047557786,103.21769996415468,102.74900748679778,102.1762755791193,101.56385862171622,100.97950632495132,100.48672872231091,100.13812122311565,99.97024036493407,100.00030762029424,100.22479904921605,100.61987714822375,101.14360171890883,101.73984797666489]}",
+      "response": "long — momentum intact, oracle NAV consistent. confidence: 0.61"
+    },
+    {
+      "agent": "Contrarian",
+      "system": "You are the Contrarian on an autonomous trading desk that trades tokenized US stocks 24/7 on Robinhood Chain. Your role: actively tries to refute the emerging consensus. Reply with a side (long/short/flat), a confidence in [0,1] as 'confidence: x', and one sentence of evidence. Be decisive but honest; abstain (flat) when the edge is not there.",
+      "user": "{\"ticker\":\"NVDA\",\"regime\":\"chop\",\"window\":[103.55990568993977,103.64759193829363,103.52908047557786,103.21769996415468,102.74900748679778,102.1762755791193,101.56385862171622,100.97950632495132,100.48672872231091,100.13812122311565,99.97024036493407,100.00030762029424,100.22479904921605,100.61987714822375,101.14360171890883,101.73984797666489]}",
+      "response": "short — momentum intact, oracle NAV consistent. confidence: 0.64"
+    },
+    {
+      "agent": "Executor",
+      "system": "You are the Executor on an autonomous trading desk that trades tokenized US stocks 24/7 on Robinhood Chain. Your role: judges fill quality, slippage and whether the edge survives costs. Reply with a side (long/short/flat), a confidence in [0,1] as 'confidence: x', and one sentence of evidence. Be decisive but honest; abstain (flat) when the edge is not there.",
+      "user": "{\"ticker\":\"NVDA\",\"regime\":\"chop\",\"window\":[103.55990568993977,103.64759193829363,103.52908047557786,103.21769996415468,102.74900748679778,102.1762755791193,101.56385862171622,100.97950632495132,100.48672872231091,100.13812122311565,99.97024036493407,100.00030762029424,100.22479904921605,100.61987714822375,101.14360171890883,101.73984797666489]}",
+      "response": "long — momentum intact, oracle NAV consistent. confidence: 0.65"
+    },
+    {
+      "agent": "Risk",
+      "system": "You are the Risk on an autonomous trading desk that trades tokenized US stocks 24/7 on Robinhood Chain. Your role: argues the downside: liquidity, gap risk, correlation to the book. Reply with a side (long/short/flat), a confidence in [0,1] as 'confidence: x', and one sentence of evidence. Be decisive but honest; abstain (flat) when the edge is not there.",
+      "user": "{\"ticker\":\"NVDA\",\"regime\":\"chop\",\"window\":[103.55990568993977,103.64759193829363,103.52908047557786,103.21769996415468,102.74900748679778,102.1762755791193,101.56385862171622,100.97950632495132,100.48672872231091,100.13812122311565,99.97024036493407,100.00030762029424,100.22479904921605,100.61987714822375,101.14360171890883,101.73984797666489]}",
+      "response": "long — momentum intact, oracle NAV consistent. confidence: 0.63"
+    },
+    {
+      "agent": "Sentiment",
+      "system": "You are the Sentiment on an autonomous trading desk that trades tokenized US stocks 24/7 on Robinhood Chain. Your role: weighs news and social flow around the underlying equity. Reply with a side (long/short/flat), a confidence in [0,1] as 'confidence: x', and one sentence of evidence. Be decisive but honest; abstain (flat) when the edge is not there.",
+      "user": "{\"ticker\":\"NVDA\",\"regime\":\"chop\",\"window\":[103.55990568993977,103.64759193829363,103.52908047557786,103.21769996415468,102.74900748679778,102.1762755791193,101.56385862171622,100.97950632495132,100.48672872231091,100.13812122311565,99.97024036493407,100.00030762029424,100.22479904921605,100.61987714822375,101.14360171890883,101.73984797666489]}",
+      "response": "long — momentum intact, oracle NAV consistent. confidence: 0.62"
+    }
+  ],
+  "verdict": {
+    "ticker": "NVDA",
+    "side": "long",
+    "size": 0.20589285714285713,
+    "quorum": 4,
+    "opinions": [
+      {
+        "agent": "Analyst",
+        "side": "long",
+        "confidence": 0.61,
+        "rationale": "long — momentum intact, oracle NAV consistent. confidence: 0.61"
+      },
+      {
+        "agent": "Sentiment",
+        "side": "long",
+        "confidence": 0.62,
+        "rationale": "long — momentum intact, oracle NAV consistent. confidence: 0.62"
+      },
+      {
+        "agent": "Risk",
+        "side": "long",
+        "confidence": 0.63,
+        "rationale": "long — momentum intact, oracle NAV consistent. confidence: 0.63"
+      },
+      {
+        "agent": "Contrarian",
+        "side": "short",
+        "confidence": 0.64,
+        "rationale": "short — momentum intact, oracle NAV consistent. confidence: 0.64"
+      },
+      {
+        "agent": "Executor",
+        "side": "long",
+        "confidence": 0.65,
+        "rationale": "long — momentum intact, oracle NAV consistent. confidence: 0.65"
+      }
+    ],
+    "regime": "chop"
+  },
+  "proof": {
+    "verdictHash": "0x4e968bb0adab92505ebead88b210e1363e6c85ed473eaa47dbe8accad57f22ef",
+    "featuresHash": "0x7d9b660507f8e573ce5081a3a87f51d2f2c894f6484776c1c4f660fe2befd7dd",
+    "attestedAt": 1784421967687
+  },
+  "inputHash": "0xa279eff9db71731b5bedfc4e1f269fb7b35c309febd528732f6a3c551b03c350"
+}
