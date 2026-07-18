@@ -1,5 +1,6 @@
 import type { Config } from "../config.js";
 import type { MarketFrame, Proof, Verdict } from "../types.js";
+import type { LLM } from "../providers/hermes.js";
 import { Council } from "./council.js";
 import { resolveProvider } from "../providers/router.js";
 import { AnalystAgent } from "./agents/analyst.js";
@@ -11,15 +12,23 @@ import { attest } from "../proof/attest.js";
 
 // Wires the five agents onto the configured provider and runs one full
 // research -> debate -> verdict -> proof pass for a market frame.
-export function assembleCouncil(cfg: Config): Council {
-  const llm = resolveProvider(cfg.provider);
+//
+// `llmFor` overrides the provider per agent. Recording and replay both hang
+// off this seam, which is why it takes an agent name rather than a single
+// shared client.
+export function assembleCouncil(
+  cfg: Config,
+  llmFor?: (agent: string) => LLM,
+): Council {
+  const pick = (agent: string): LLM =>
+    llmFor ? llmFor(agent) : resolveProvider(cfg.provider);
   return new Council(
     [
-      new AnalystAgent(llm),
-      new SentimentAgent(llm),
-      new RiskAgent(llm),
-      new ContrarianAgent(llm),
-      new ExecutorAgent(llm),
+      new AnalystAgent(pick("Analyst")),
+      new SentimentAgent(pick("Sentiment")),
+      new RiskAgent(pick("Risk")),
+      new ContrarianAgent(pick("Contrarian")),
+      new ExecutorAgent(pick("Executor")),
     ],
     cfg,
   );
