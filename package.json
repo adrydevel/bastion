@@ -3,22 +3,44 @@
   "version": "0.5.1",
   "description": "Autonomous, verifiable AI trading agent for tokenized stocks on Robinhood Chain.",
   "type": "module",
-  "bin": { "bastion": "dist/index.js" },
+  "bin": {
+    "bastion": "dist/index.js"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "examples", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "prepare": "tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/index.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run"
   },
-  "keywords": ["ai-agents","autonomous-trading","robinhood-chain","tokenized-stocks","multi-agent","verifiable-ai","defi","cli"],
-  "engines": { "node": ">=20" },
-  "repository": { "type": "git", "url": "https://github.com/adrydevel/bastion.git" },
+  "keywords": [
+    "ai-agents",
+    "autonomous-trading",
+    "robinhood-chain",
+    "tokenized-stocks",
+    "multi-agent",
+    "verifiable-ai",
+    "defi",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrydevel/bastion.git"
+  },
   "homepage": "https://bastionfund.vercel.app",
-  "bugs": { "url": "https://github.com/adrydevel/bastion/issues" },
+  "bugs": {
+    "url": "https://github.com/adrydevel/bastion/issues"
+  },
   "author": "adrydevel",
   "license": "MIT",
   "dependencies": {
