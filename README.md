@@ -17,7 +17,7 @@ A swarm of AI agents that researches, debates, sizes and executes — then prove
 [![last commit](https://img.shields.io/github/last-commit/adrydevel/bastion?style=flat-square&color=ccff00&labelColor=0a0a0a)](../../commits)
 [![issues](https://img.shields.io/github/issues/adrydevel/bastion?style=flat-square&color=ccff00&labelColor=0a0a0a)](../../issues)
 
-[Website](https://bastionfund.vercel.app) · [Architecture](docs/architecture.md) · [Verifiable Reasoning](docs/verifiable-reasoning.md) · [Changelog](CHANGELOG.md)
+[Website](https://bastionfund.vercel.app) · [Architecture](docs/architecture.md) · [Verifiable Reasoning](docs/verifiable-reasoning.md) · [Replay](docs/replay.md) · [Changelog](CHANGELOG.md)
 
 </div>
 
@@ -40,7 +40,25 @@ cargo install --git https://github.com/adrydevel/bastion-rs bastion-rs
 
 # run one research -> debate -> verdict -> proof pass
 bastion run --ticker NVDA
+
+# record that pass, then re-derive it from scratch and verify it
+bastion run --ticker NVDA --record
+bastion replay 4e968bb0
 ```
+
+```
+replaying 0x4e968bb0adab9250…  NVDA · recorded 2026-07-19 00:44:22 · bastion 0.5.0
+  ok   cassette integrity
+  ok   regime
+  ok   verdict
+  ok   features hash
+  ok   verdict hash
+
+  verified — this decision follows from its recorded inputs
+```
+
+Edit one number in the cassette and it fails, with a non-zero exit code —
+see [docs/replay.md](docs/replay.md).
 
 Reasoning runs on [Nous Research](https://nousresearch.com) **Hermes** by default (open-weights, OpenAI-compatible). Point `BASTION_BASE_URL` / `BASTION_API_KEY` at any compatible endpoint to swap it.
 
@@ -53,6 +71,7 @@ Reasoning runs on [Nous Research](https://nousresearch.com) **Hermes** by defaul
 | **Regime + Bandit** | Classifies trend / chop / high-vol and reallocates strategies via Thompson sampling. |
 | **Reflexive Memory** | Recalls similar past states and post-mortems, feeds them back into the next decision. |
 | **Verifiable Reasoning** | `keccak256` of the full decision, anchored on Robinhood Chain — tamper-evident, TEE-signed in the hosted tier. |
+| **Deterministic Replay** | `bastion replay <hash>` re-derives any recorded decision from its inputs and model transcript, and fails loudly if a single field was edited. |
 | **Robinhood Chain native** | Reads NAV from the Chainlink oracle; executes tokenized stocks 24/7. |
 
 ## Architecture
@@ -80,6 +99,7 @@ Full write-up in [docs/architecture.md](docs/architecture.md).
 - [x] Regime detection + bandit allocation
 - [x] Reflexive memory
 - [x] On-chain proof anchoring
+- [x] Deterministic replay of recorded decisions
 - [ ] TEE-signed attestation (hosted runtime)
 - [ ] Backtest harness against historical oracle series
 - [ ] Multi-book portfolio allocation
