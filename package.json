@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "viem": "^2.21.0",
-    "commander": "^12.1.0",
+    "commander": "^15.0.0",
     "picocolors": "^1.1.0",
     "zod": "^3.23.8",
     "openai": "^6.45.0"
