@@ -1,13 +1,14 @@
 {
   "name": "bastion",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Autonomous, verifiable AI trading agent for tokenized stocks on Robinhood Chain.",
   "type": "module",
   "bin": { "bastion": "dist/index.js" },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": ["dist", "examples", "README.md", "LICENSE"],
   "scripts": {
+    "prepare": "tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/index.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",

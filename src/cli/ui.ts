@@ -13,6 +13,10 @@ export function note(s: string): void {
   console.log(pc.dim(`  ${s}`));
 }
 
+export function warn(s: string): void {
+  console.log(pc.yellow(`  ${s}`));
+}
+
 export function printVerdict(v: Verdict, p: Proof): void {
   const head = v.side === "flat" ? pc.dim("flat") : G(`${v.side} ${v.ticker}`);
   console.log(`\n${head}  ${pc.dim(`quorum ${v.quorum}/5 · ${v.regime}`)}`);

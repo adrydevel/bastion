@@ -2,6 +2,22 @@
 
 All notable changes are documented here. Format based on Keep a Changelog.
 
+## [0.5.1] - 2026-07-19
+### Added
+- `bastion run --offline` — deterministic, model-free heuristic over a
+  synthetic price window. The pipeline, risk kernel and proof/replay path now
+  run end-to-end on a fresh machine with no key, no endpoint and no network.
+- `bastion replay --demo` replays the cassette bundled with the install, so
+  verification needs no files of your own.
+
+### Changed
+- The synthetic demo window is now seeded from the ticker. It previously
+  produced an identical series — and therefore an identical verdict — for
+  every symbol, which made the demo look rigged.
+- `install.sh` / `install.ps1` install this package. They previously preferred
+  `bastion-rs`, an early port that does not implement the council, the risk
+  kernel or replay.
+
 ## [0.5.0] - 2026-07-19
 ### Added
 - `bastion run --record` writes a replayable cassette: config, market window,

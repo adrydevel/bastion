@@ -31,23 +31,30 @@ Robinhood Chain put tokenized US stocks (NVDA, AAPL, GOOG…) on-chain and made 
 
 ## Quick Start
 
+Needs Node 20+. No API key required for the offline path.
+
 ```bash
 # one-line install (macOS / Linux)
-curl -fsSL https://bastiontrade.xyz/install.sh | bash
+curl -fsSL https://bastiontrade.xyz/install.sh | sh
 
-# or build the native binary directly
-cargo install --git https://github.com/adrydevel/bastion-rs bastion-rs
+# or install directly
+npm install -g github:adrydevel/bastion
 
-# run one research -> debate -> verdict -> proof pass
-bastion run --ticker NVDA
+# verify a decision that ships with the install — no key, no network
+bastion replay --demo
 
-# record that pass, then re-derive it from scratch and verify it
-bastion run --ticker NVDA --record
-bastion replay 4e968bb0
+# run a pass yourself and replay it
+bastion run --ticker NVDA --offline --record
+bastion replay <hash>
 ```
 
+`--offline` runs a deterministic heuristic over a synthetic price window
+instead of calling a model, so the pipeline, risk kernel and proof path can be
+exercised end-to-end with nothing configured. Drop it and point
+`BASTION_BASE_URL` / `BASTION_API_KEY` at an endpoint to run the real council.
+
 ```
-replaying 0x4e968bb0adab9250…  NVDA · recorded 2026-07-19 00:44:22 · bastion 0.5.0
+replaying 0xea6b94c78ae22c3a…  NVDA · recorded 2026-07-19 01:34:39 · bastion 0.5.1
   ok   cassette integrity
   ok   regime
   ok   verdict
