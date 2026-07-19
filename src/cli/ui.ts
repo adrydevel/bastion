@@ -1,10 +1,16 @@
 import pc from "picocolors";
 import type { Proof, Verdict } from "../types.js";
+import type { Cassette } from "../replay/cassette.js";
+import type { ReplayResult } from "../replay/verify.js";
 
 const G = (s: string) => pc.green(s);
 
 export function banner(): void {
   console.log(G("bastion") + pc.dim(" · autonomous verifiable fund · robinhood chain"));
+}
+
+export function note(s: string): void {
+  console.log(pc.dim(`  ${s}`));
 }
 
 export function printVerdict(v: Verdict, p: Proof): void {
@@ -15,4 +21,29 @@ export function printVerdict(v: Verdict, p: Proof): void {
   }
   if (v.size > 0) console.log(G(`  size ${(v.size * 100).toFixed(1)}% equity`));
   console.log(pc.dim(`  proof ${p.verdictHash.slice(0, 18)}… ${p.txHash ? "anchored" : "pending"}`));
+}
+
+export function printReplay(c: Cassette, r: ReplayResult): void {
+  const when = new Date(c.recordedAt).toISOString().replace("T", " ").slice(0, 19);
+  console.log(
+    `\n${pc.dim("replaying")} ${c.proof.verdictHash.slice(0, 18)}…  ${pc.dim(
+      `${c.input.ticker} · recorded ${when} · bastion ${c.version}`,
+    )}`,
+  );
+  if (r.live) console.log(pc.yellow("  live mode — model re-queried, divergence is drift, not tampering"));
+
+  for (const check of r.checks) {
+    const mark = check.ok ? G("ok  ") : pc.red("FAIL");
+    console.log(`  ${mark} ${check.name}`);
+    if (!check.ok) {
+      console.log(pc.dim(`       expected ${check.expected}`));
+      console.log(pc.dim(`       actual   ${check.actual}`));
+    }
+  }
+
+  console.log(
+    r.ok
+      ? G("\n  verified — this decision follows from its recorded inputs\n")
+      : pc.red("\n  MISMATCH — this cassette does not reproduce\n"),
+  );
 }
